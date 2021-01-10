@@ -20,7 +20,7 @@ def check_sort(l: list) -> bool:
     return sorted
 
 
-def monkey_sort(l: list) -> list:
+def monkey_sort(l: list):
     while not check_sort(l):
         np.random.shuffle(l)
 
