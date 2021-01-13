@@ -4,19 +4,15 @@ import numpy as np
 np.random.seed(5671)
 
 POINTS_NUMBER = 100000
-a_apex = np.array([0, 1])
-b_apex = np.array([-1, -1])
-c_apex = np.array([1, -1])
-
-plt.scatter(a_apex[0], a_apex[1], marker='.', c='green', s=0.1)
-plt.scatter(b_apex[0], b_apex[1], marker='.', c='green', s=0.1)
-plt.scatter(c_apex[0], c_apex[1], marker='.', c='green', s=0.1)
 
 apexes = {
-    0: a_apex,
-    1: b_apex,
-    2: c_apex
+    0: np.array([0, 1]),
+    1: np.array([-1, -1]),
+    2: np.array([1, -1])
 }
+
+for a in apexes.values():
+    plt.scatter(a[0], a[1], marker='.', c='green', s=0.1)
 
 points = np.zeros((POINTS_NUMBER, 2))
 apex = np.random.randint(low=0, high=3, size=POINTS_NUMBER)
