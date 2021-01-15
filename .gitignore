@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # fasta file sample
-.sample.fasta
+sample.fasta
