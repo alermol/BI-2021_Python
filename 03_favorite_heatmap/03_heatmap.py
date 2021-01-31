@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 np.random.seed(5671)
 
 
-array = np.random.random((300, 300))
+array = np.random.random((500, 500))
 plt.imshow(array, cmap='Greys_r')
 plt.title('Favorite plot - heatmap of white noise')
-plt.show()
+plt.savefig('03_favorite_heatmap.jpeg', bbox_inches='tight')
