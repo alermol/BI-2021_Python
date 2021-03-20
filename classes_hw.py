@@ -33,7 +33,7 @@ class Dna:
         return self.seq == other.seq
 
     def __hash__(self):
-        return self.seq
+        return hash(self.seq)
 
 
 class Rna():
