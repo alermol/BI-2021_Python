@@ -6,6 +6,8 @@ class Dna:
             raise Exception("DNA sequence can not contain U")
         elif not set(self.seq).issubset(set('ATGC')):
             raise Exception('Only A, T, G or C should be in DNA sequnce')
+        elif len(self.seq) == 0:
+            raise Exception('Sequence cannot be an empty string')
 
     def gc_content(self):
         return (self.seq.count('G') + self.seq.count('C')) / len(self.seq)
@@ -41,9 +43,11 @@ class Rna():
     def __init__(self, seq: str):
         self.seq = seq.upper()
         if 'T' in self.seq:
-            raise Exception("RNA sequence can not contain T")
+            raise Exception('RNA sequence can not contain T')
         elif not set(self.seq).issubset(set('AUGC')):
             raise Exception('Only A, U, G or C should be in RNA sequnce')
+        elif len(self.seq) == 0:
+            raise Exception('Sequence cannot be an empty string')
 
     def gc_content(self):
         return (self.seq.count('G') + self.seq.count('C')) / len(self.seq)
