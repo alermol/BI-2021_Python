@@ -36,15 +36,12 @@ class DnaClassTests(unittest.TestCase):
         self.assertIsInstance(Rna('AUGCGCG'), Rna)
 
     def test_gc_content(self):
-        test_cases = []
-        for _ in range(100):
-            case = ('AU' * random.randint(0, 1000) +
-                    'GC' * random.randint(0, 1000))
-            test_cases.append(case)
-        for s in test_cases:
-            with self.subTest(s):
-                clue = (s.count('G') + s.count('C')) / len(s)
-                self.assertEqual(Rna(s).gc_content(), clue)
+        case1 = 'AU' * 10 + 'GC' * 40
+        case2 = 'GC' * 50
+        case3 = 'AU' * 50
+        self.assertEqual(Rna(case1).gc_content(), 0.8)
+        self.assertEqual(Rna(case2).gc_content(), 1.0)
+        self.assertEqual(Rna(case3).gc_content(), 0.0)
 
     def test_reverse_complement(self):
         case = list('AU' * random.randint(1, 1000) +
