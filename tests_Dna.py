@@ -37,15 +37,8 @@ class DnaClassTests(unittest.TestCase):
         self.assertIsInstance(Dna('ATGCGCG'), Dna)
 
     def test_gc_content(self):
-        test_cases = []
-        for _ in range(100):
-            case = ('AT' * random.randint(0, 1000) +
-                    'GC' * random.randint(0, 1000))
-            test_cases.append(case)
-        for s in test_cases:
-            with self.subTest(s):
-                clue = (s.count('G') + s.count('C')) / len(s)
-                self.assertEqual(Dna(s).gc_content(), clue)
+        case = 'AT' * 10 + 'GC' * 40
+        self.assertEqual(Dna(case).gc_content(), 0.8)
 
     def test_reverse_complement(self):
         case = list('AT' * random.randint(1, 1000) +
